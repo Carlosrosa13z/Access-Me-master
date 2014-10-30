@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="chrome://accessme/skin/overlay.css" type="text/css" ?>
+<overlay id="accessme-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!-- 
+Copyright 2007 Security Compass
+
+This file is part of Access Me.
+
+Access Meis free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Access Meis distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Access Me.  If not, see <http://www.gnu.org/licenses/>.
+
+If you have any questions regarding Access Meplease contact
+tools@securitycompass.com
+-->
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/io.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/SecCompHistoryListener.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/SecCompObserver.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/util.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/htmlStringEncoder.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/sidebarBuilder.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/StreamListener.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/TestManager.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/ReportGenerator.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/TestRunnerContainer.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/progressListener.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/tabbrowsermanager.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/Results.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/FieldResult.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/ResultsManager.js" />
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/json.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/preferenceStringContainer.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/attackParamDetectRegexContainer.js" />.
+    <script type="application/x-javascript"
+            src="chrome://accessme/content/PassStringContainer.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/ErrorStringContainer.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/AttackRunner.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/AttackHttpResponseObserver.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/evaluators.js" />
+    <script type="application/x-javascript" 
+            src="chrome://accessme/content/overlay.js"/>
+    <broadcasterset id="mainBroadcasterSet">
+        <broadcaster id="accessme-start"
+                     label="Test This Page"
+                     tooltiptext="Test This Page"
+                     oncommand="accessMeOverlay.start()" />
+        <broadcaster id="accessme-stop"
+                     label="Pause Testing"
+                     tooltiptext="Pause testing"
+                     oncommand="accessMeOverlay.pause()"
+                     />
+        <broadcaster id="accessme-action"
+                     tooltiptext="Test This Page"
+                     label="Test This Page"
+                     oncommand="accessMeOverlay.requestTest()" />
+        <broadcaster id='accessme-report'
+                     label='Report'
+                     tooltiptext="Generate a report of all findings"
+                     oncommand="accessMeOverlay.showReport()" />
+        <broadcaster id='accessme-pause'
+                     label='Pause'
+                     oncommand='accessMeOverlay.pause()' />
+        <broadcaster id="accessme-clear"
+                     label='Clear Results'
+                     tooltiptext="Clear all recorded results"
+                     oncommand='accessMeOverlay.clearResults()' />
+    </broadcasterset>
+  
+  <toolbox id="navigator-toolbox" >
+    <toolbar id="accessme-bar" toolbarname='Access Me Toolbar' insertafter="customToolbars">
+      <toolbarbutton  oncommand="accessMeOverlay.openHomePage(event)" onclick="checkForMiddleClick(this, event)" label="Security Compass Access Me" tooltiptext="Check out our other great pen testing add-ons." style="color: rgb(64, 80, 104)"/>
+      <toolbarbutton id='accessme-toolbarbutton-test-action' orient='vertical' class="start" observes='accessme-start' />
+      <toolbarbutton label="Not Started" id='accessme-test-status' class="start" disabled='true'/>
+      <toolbarbutton id='accessme-gen-report' orient='vertical' observes='accessme-report' />
+      <separator orient="vertical"/>
+      <toolbarbutton id='accessme-clear-results' command='accessme-clear'/>
+    </toolbar>
+  </toolbox>
+  <menupopup id="menu_ToolsPopup">
+    <menu id="accesme-tools" label="Access Me"  insertafter="devToolsSeparator" accesskey="a">
+        <menupopup>
+            <menuitem id="accessme-menubutton-test-action" observes="accessme-start" />
+            <menuitem observes="accessme-report" />
+            <menuitem label="Options" oncommand="window.openDialog('chrome://accessme/content/preferences.xul')" />
+            <menuitem label="About" oncommand="window.openDialog('chrome://accessme/content/about.xul');" />
+            <menuitem label="Help" oncommand="window.open('http://securitycompass.com/exploitme.shtml', 'helpwindow', '');" />  
+        </menupopup>
+    </menu>
+  </menupopup>
+</overlay>

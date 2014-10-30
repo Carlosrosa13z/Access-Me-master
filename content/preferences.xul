@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://accessme/skin/preferences.css" type="text/css"?>
+<prefwindow id="accessmePreferences" title="Access Me Options"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <prefpane label="General" id="sqligen" >
+        <!-- 
+Copyright 2007 Security Compass
+
+This file is part of Access Me.
+
+Access Meis free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Access Meis distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Access Me.  If not, see <http://www.gnu.org/licenses/>.
+
+If you have any questions regarding Access Meplease contact
+tools@securitycompass.com
+-->
+        <preferences>
+            <preference id="prefNumParallellAttacks"
+                        name="extensions.accessme.numtabstouse"
+                        instantApply="true"
+                        type="int"/>
+            <preference id="prefPauseBetweenTests"
+                        name="extensions.accessme.pausebetweentests"
+                        instantApply="true"
+                        type="int" />
+            <preference id="prefSimilarityFactor"
+                        name="extensions.accessme.similarityRating"
+                        instantApply="true"
+                        type="int" />
+        </preferences>
+                
+        <label value="Number of simultaneous requests" control="txtNumParallellAttacks" />
+        <textbox id="txtNumParallellAttacks" preference="prefNumParallellAttacks" />
+        <label value="Wait time between requests" control="txtPauseBetweenTests" />
+        <textbox id="txtPauseBetweenTests" preference="prefPauseBetweenTests" />
+        <label value="Similarity threshold (%)"
+                control="txtSidebarBuildingPause"
+                crop="end" />
+	<textbox id="txtSimilarityFactor" />
+    </prefpane>
+    <prefpane label="Params to Test" id='paramsToAttack'>
+        <preferences>
+        </preferences>
+        <script type="application/x-javascript" src="chrome://accessme/content/json.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/io.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/util.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/SecCompObserver.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/preferenceStringContainer.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/PassStringContainer.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/ErrorStringContainer.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/attackParamDetectRegexContainer.js" />
+        <script type="application/x-javascript" src="chrome://accessme/content/preferences.js" />
+        <groupbox>
+            <caption label="Parameters to Test" />
+            <description>
+                Regular Expressions used to match the (Get/Post/Cookie) parameters to be dropped during testing.
+            </description>
+            <label style="visibility:hidden;color: red" value="No paramregexs, please enter some" id="noregexlbl" />
+            <hbox>
+                <listbox id="existingAttackParamDetectRegex" rows="10" seltype="multiple" flex="1">
+                </listbox>
+                <vbox>
+                    <button label="up" oncommand="preferencesController.moveDetectRegExStringUp()"/>
+                    <button label="down" oncommand="preferencesController.moveDetectRegExStringDown()"/>
+                    <button label="add" oncommand="window.openDialog('chrome://accessme/content/addDetectRegEx.xul', 'DetectRegEx', 'chrome', getAttackParamDetectRegexContainer(), preferencesController, window)"/>
+                    <button label="remove" oncommand="preferencesController.removeDetectRegEx()"/>
+		    <button label="export" oncommand="preferencesController.exportDetectionRegexs()" />
+		    <button label="import" oncommand="preferencesController.importDetectionRegexs()" />
+                </vbox>
+            </hbox>
+        </groupbox>
+    </prefpane>
+    <script>
+        window.addEventListener("load", function(){preferencesController = new PreferencesController()}, false);
+        window.addEventListener("unload", function(){preferencesController.unload();}, false);
+    </script>
+</prefwindow>

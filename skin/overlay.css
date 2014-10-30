@@ -1,0 +1,105 @@
+/*
+Copyright 2007 Security Compass
+
+This file is part of Access Me.
+
+Access Meis free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Access Meis distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Access Me.  If not, see <http://www.gnu.org/licenses/>.
+*/
+*
+/* This is just an example.  You shouldn't do this. */
+#accessme-hello
+{
+}
+#accessme-toolbar-button
+{
+  list-style-image: url("chrome://accessme/skin/toolbar-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#accessme-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #accessme-toolbar-button
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #accessme-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+
+#logo {
+  color: blue;
+}
+
+
+toolbox[mode='icons'] #accessme-test-status .toolbarbutton-text,
+toolbox[mode='icons'] #accessme-gen-report  .toolbarbutton-text,
+toolbox[mode='icons'] #accessme-clear-results .toolbarbutton-text,
+toolbox[mode='icons'] #accessme-toolbarbutton-test-action .toolbarbutton-text
+{
+  display: none !important;
+}
+
+toolbox[mode='full'] #accessme-toolbarbutton-test-action .toolbarbutton-text,
+toolbox[mode='full'] #accessme-test-status .toolbarbutton-text,
+toolbox[mode='full'] #accessme-gen-report  .toolbarbutton-text,
+toolbox[mode='full'] #accessme-clear-results .toolbarbutton-text
+{
+  display: -moz-box !important;
+}
+
+toolbox[mode='text'] #accessme-toolbarbutton-test-action .toolbarbutton-icon,
+toolbox[mode='text'] #accessme-test-status .toolbarbutton-icon,
+toolbox[mode='text'] #accessme-gen-report  .toolbarbutton-icon,
+toolbox[mode='text'] #accessme-clear-results .toolbarbutton-icon
+{
+  display: none !important;
+}
+
+#accessme-gen-report .toolbarbutton-icon,
+#accessme-test-status .toolbarbutton-icon,
+#accessme-clear-results .toolbarbutton-icon {
+  height: 16px !important;
+  width: 16px !important;
+}
+
+#accessme-toolbarbutton-test-action.start {
+  list-style-image: url('chrome://accessme/skin/media-record.png') !important;
+  
+}
+
+#accessme-test-status.start, #accessme-test-status.pass{
+  list-style-image: url('chrome://accessme/skin/weather-clear.png') !important;
+}
+
+#accessme-test-status.error {
+  list-style-image: url('chrome://accessme/skin/dialog-warning.png') !important;
+}
+
+#accessme-test-status.wip {
+  list-style-image: url('chrome://browser/skin/Throbber.gif') !important;
+}
+
+#accessme-test-status.notest {
+  list-style-image: url('chrome://global/skin/icons/Warning.png') !important;
+}
+
+#accessme-gen-report {
+  list-style-image: url('chrome://accessme/skin/edit-select-all.png') !important;
+}
+
+#accessme-clear-results {
+   list-style-image: url('chrome://accessme/skin/emblem-unreadable.png') !important;
+}

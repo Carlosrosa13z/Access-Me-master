@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE dialog PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+
+<dialog id="addDetectRegEx"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        persist="screenX screenY width height"
+        buttons="accept,cancel"
+        buttonlabelaccept="Set Parameter Detection Regex"
+        buttonlabelcancel="Cancel"
+        ondialogaccept="return OK();"
+        ondialogcancel="return Cancel();">
+<!-- 
+Copyright 2008 Security Compass
+
+This file is part of Access Me.
+
+Access Meis free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Access Meis distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Access Me.  If not, see <http://www.gnu.org/licenses/>.
+
+If you have any questions regarding Access Meplease contact
+tools@securitycompass.com
+-->
+<script type="application/x-javascript" src="chrome://accessme/content/json.js" />
+<script type="application/x-javascript" src="chrome://accessme/content/preferenceStringContainer.js" />
+<script type="application/x-javascript" src="chrome://accessme/content/attackParamDetectRegexContainer.js" />
+<script type="application/x-javascript" src="chrome://accessme/content/preferences.js" />
+<script type="application/x-javascript" src="chrome://accessme/content/addDetectRegEx.js" />
+<description value="Please enter a regular expression that will match your name and a signature (an id by which we can attribute the string to you, ex. your name)" />
+<label value="Attack String" control="DetectRegExtxtbox" />
+<textbox id="DetectRegExtxtbox" />
+<label value="Your Signature" control="sigtxtbox" />
+<textbox id="sigtxtbox" />
+<script>
+function OK(){
+    return onOk();
+}
+function Cancel(){
+    return onCancel();
+}
+</script>
+</dialog>

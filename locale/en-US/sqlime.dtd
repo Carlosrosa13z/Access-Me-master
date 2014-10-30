@@ -1,0 +1,5 @@
+<!ENTITY accessme.label "Your localized menuitem">
+<!ENTITY accessmeContext.label "Your Menuitem">
+<!ENTITY accessmeContext.accesskey "Y">
+<!ENTITY accessmeToolbar.label "Your Toolbar Button">
+<!ENTITY accessmeToolbar.tooltip "This is your toolbar button!">

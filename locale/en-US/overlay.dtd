@@ -1,0 +1,15 @@
+<!ENTITY accessme.tools "XSS Me">
+<!ENTITY accessme.toolx "XSS Me">
+<!ENTITY accessme.open "Open XSS ME">
+<!ENTITY accessme.helppage "http://www.securitycompass.com/accessme.html">
+<!ENTITY accessme.help "Help">
+<!ENTITY accessme.about "About">
+<!ENTITY accessme.options "Options">
+<!ENTITY accessme.encoding "Encoding">
+<!ENTITY accessme.random "Random">
+<!ENTITY accessme.encoding.none "None">
+<!ENTITY accessme.encoding.unicode "Unicode">
+<!ENTITY accessme.encoding.html "HTML">
+<!ENTITY accessme.encoding.hex "Hex">
+<!ENTITY accessme.encoding.doublehex "Double Hex">
+<!ENTITY accessme.cookies "Cookies">
